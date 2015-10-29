@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,58 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUh-tS-ZGd" customClass="JTHorizontalCalendarView">
+                                <rect key="frame" x="20" y="116" width="560" height="484"/>
+                                <color key="backgroundColor" red="0.92425657400000005" green="1" blue="0.72967084739999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgJ-Wy-KMg">
+                                <rect key="frame" x="20" y="28" width="107" height="30"/>
+                                <state key="normal" title="Previous Month"/>
+                                <connections>
+                                    <action selector="previousMonth:" destination="BYZ-38-t0r" eventType="touchDown" id="cCR-5Q-v5i"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQP-Lj-uF7">
+                                <rect key="frame" x="500" y="28" width="80" height="30"/>
+                                <state key="normal" title="Next Month"/>
+                                <connections>
+                                    <action selector="nextMonth:" destination="BYZ-38-t0r" eventType="touchDown" id="f9Z-Xy-UMj"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1td-Kt-bam" customClass="JTCalendarMenuView">
+                                <rect key="frame" x="20" y="66" width="560" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.8881724513" blue="0.76199159689999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="23E-co-ROM"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Uwf-Y5-wkP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1td-Kt-bam" firstAttribute="top" secondItem="SQP-Lj-uF7" secondAttribute="bottom" constant="8" id="3Jb-QF-GlZ"/>
+                            <constraint firstItem="CgJ-Wy-KMg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5uA-V2-ItA"/>
+                            <constraint firstItem="1td-Kt-bam" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="BOR-uF-UGK"/>
+                            <constraint firstItem="SQP-Lj-uF7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="KmI-7E-nu9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="vUh-tS-ZGd" secondAttribute="bottom" id="PEf-z2-far"/>
+                            <constraint firstItem="vUh-tS-ZGd" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="RiI-Bd-UF8"/>
+                            <constraint firstItem="SQP-Lj-uF7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="We3-Py-HTV"/>
+                            <constraint firstItem="vUh-tS-ZGd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aLf-rB-XvQ"/>
+                            <constraint firstItem="vUh-tS-ZGd" firstAttribute="top" secondItem="1td-Kt-bam" secondAttribute="bottom" id="hKT-U0-GA0"/>
+                            <constraint firstItem="vUh-tS-ZGd" firstAttribute="top" secondItem="1td-Kt-bam" secondAttribute="bottom" id="hgC-dD-qua"/>
+                            <constraint firstItem="1td-Kt-bam" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="tYj-3k-N9z"/>
+                            <constraint firstItem="CgJ-Wy-KMg" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="u4r-AP-Res"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="horizontalView" destination="vUh-tS-ZGd" id="nyE-bi-KTH"/>
+                        <outlet property="menuView" destination="1td-Kt-bam" id="dFz-Fh-8Q4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="191" y="310"/>
         </scene>
     </scenes>
 </document>
